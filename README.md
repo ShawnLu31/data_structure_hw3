@@ -29,7 +29,7 @@
       4.	LeaveLine:
          輸入指令(DEQUEUE X) 將line X的最前端的盤子index移出line X，並將所有其他盤子向前移一格。
 ## Result screenshot:
-[!image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_1.PNG)
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_1.PNG)
 ## Program functions:
    1. void Refill(stack_pointer *top, int index)
       Refill a plate index N into plate stack. 
