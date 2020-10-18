@@ -1,7 +1,7 @@
 ##### F74086072 資訊系 呂文翔
 # HW3_1
 ## Program design:
-   * struct
+   * struct:
    for linked lists
  ```c
   typedef struct stack *stack_pointer;
@@ -66,7 +66,58 @@
 
 # HW_2
 ## Program design:
+  * strust:
+  for linked lists
+  ```c
+  typedef struct card_list *card_pointer;
+  typedef struct card_list{
+    int x;  //int 13 - 1
+    char c; //char K - A
+    card_pointer next;
+  }card_list;
+  ```
+  * Variable:
+    - FLIE *fin - input file.
+    - FILE *fout - output file.
+    - card_pointer top - This is pointer of the pointer of the top of the card lists.
+    - bool drawn - 牌堆頂為目前要抽抽出的牌(true)，否則(false).
+    - int order - 目前要抽抽出的牌(from 13 to 1).
+    - int stop - 牌堆以抽完(-1), 牌堆未抽完(0).
+  * Function:
+    1. InputCard:
+        將<input.txt>中的字元依序建成link-list牌堆。
+    2. Write:
+        將抽牌與移牌後的牌堆順序寫入output.txt檔。
+    3. DrawCard:
+        判斷牌堆頂的牌是否為目前需要的牌。
+    4. MoveCard:
+        抽出或移動牌的順序。
 ## Result screenshot:
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-1.PNG)
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-2.PNG)
 ## Program functions:
+  1. void InputCard(FILE *f, card_pointer *top)
+    將<input.txt>中的字元依序建成link-list牌堆。
+    * Parameters
+      - *f - read data from *f. 
+      - *top - This is pointer of the pointer of the top of the card lists.
+  2. void Write(FILE *f, card_pointer *top)
+    將抽牌與移牌後的牌堆順序寫入output.txt檔。
+    * Parameters
+      - *f - write data to *f.
+      - *top - This is pointer of the pointer of the top of the card lists.
+  3. bool DrawCard(card_pointer *top, int order)
+    如果牌堆頂是目前需要的牌，回傳true。
+    * Parameters
+      - *top - This is pointer of the pointer of the top of the card lists.
+      - order - 目前要抽出的牌(from K to A).
+    * Return value
+      - true - 牌頂的牌(*top)等於目前要抽出的牌(order).
+      - false - 牌頂的牌(*top)不等於目前要抽出的牌(order).
+  4. void MoveCard(card_pointer *top, bool drawn)
+    若drawn == true ，將牌頂其抽出牌推(移出link-list)。
+    否則將牌頂的牌移置牌堆底。
+    * Parameters
+      - *top - This is pointer of the pointer of the top of the card lists.
 ## Program architecture:
 #### 流程圖:
