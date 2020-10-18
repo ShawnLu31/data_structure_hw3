@@ -1,5 +1,5 @@
 ##### F74086072 資訊系 呂文翔
-#HW3_1
+# HW3_1
 ## Program design:
    * struct
    for linked lists
@@ -9,6 +9,12 @@
     int plateIndex;
     stack_pointer next;
   }stack;
+  
+  typedef struct queue *queue_pointer;
+  typedef struct queue{
+    int plateIndex;
+    queue_pointer next;
+  }queue;
  ```
    * Variable:
       - int plateIndex – 存取要放入plateStack的plate index.
@@ -56,4 +62,11 @@
          - Return th index of the leaving customer’s plate.
 ## Program architecture:
 #### 流程圖:
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/Untitled%20Diagram.png)
 
+# HW_2
+## Program design:
+## Result screenshot:
+## Program functions:
+## Program architecture:
+#### 流程圖:
