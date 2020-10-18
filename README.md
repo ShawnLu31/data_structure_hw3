@@ -120,4 +120,5 @@
     * Parameters
       - *top - This is pointer of the pointer of the top of the card lists.
 ## Program architecture:
-#### 流程圖:
+####  流程圖:
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/diagram3-2.png)
