@@ -10,24 +10,19 @@ typedef struct card_list{
     card_pointer next;
 }card_list;
 
-void InputCard(FILE *f, card_pointer *top);
-void Write(FILE *f, card_pointer *top);
+void InputCard(card_pointer *top);
+void Write(card_pointer *top);
 bool DrawCard(card_pointer *top, int order);
 void MoveCard(card_pointer *top, bool drawn);
 
 int main(int argc, char **argv){
-    //open file
-    FILE *fin, *fout;
-    fin = fopen(argv[1], "r");
-    fout = fopen(argv[2], "w");    
-
     card_pointer top = NULL;
-    InputCard(fin, &top);
+    InputCard(&top);
     bool drawn = false;
     int order = 13;
     int stop = 0;
     while(stop != -1){
-        Write(fout, &top);
+        Write(&top);
         drawn = DrawCard(&top, order);
         MoveCard(&top, drawn);
         if(drawn == true){
@@ -37,14 +32,12 @@ int main(int argc, char **argv){
                 stop = -1;
         }
     }
-    fclose(fin);
-    fclose(fout);
     return 0;
 }
 
-void InputCard(FILE *f, card_pointer *top){
+void InputCard(card_pointer *top){
     char ch;
-    while((ch = fgetc(f)) != EOF){
+    while((ch = getc(stdin)) != EOF){
         card_pointer tpstr = (card_pointer)malloc(sizeof(card_list));
         if(IS_FULL(tpstr)){
 		    fprintf(stderr, "The memory is full\n");
@@ -101,16 +94,16 @@ void InputCard(FILE *f, card_pointer *top){
     }while(current != *top);
     *top = pre;
 };
-void Write(FILE *f, card_pointer *top){
+void Write(card_pointer *top){
     card_pointer temp = *top;
     do{
         if(temp->x == 10)
-            fprintf(f, "10 ");
+            fprintf(stdout, "10 ");
         else
-            fprintf(f, "%c ", temp->c);
+            fprintf(stdout, "%c ", temp->c);
         temp = temp->next;
     }while(temp != *top);
-    fprintf(f, "\n");
+    fprintf(stdout, "\n");
 };
 bool DrawCard(card_pointer *top, int order){
     if((*top)->x == order)

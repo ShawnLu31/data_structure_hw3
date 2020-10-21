@@ -21,10 +21,6 @@ void JoinLine(queue_pointer *front, queue_pointer *rear, int index);
 int LeaveLine(queue_pointer *front);
 
 int main(int argc, char **argv){
-	FILE *fin, *fout;
-	//open file
-	fin = fopen(argv[1], "r");
-	fout = fopen(argv[2], "w");
     //stack and queue
     stack_pointer top = NULL;
 	queue_pointer frontA = NULL, rearA = NULL;
@@ -33,30 +29,30 @@ int main(int argc, char **argv){
 	char str[20], tp[10];
 	char ch, lineX;
 	int plateIndex = 0, plateTakeIndex = 0, plateOutIndex = 0;
-	while((ch = fgetc(fin)) != '^' && ch != EOF)
+	while((ch = getc(stdin)) != '^' && ch != EOF)
 	{
 		switch(ch)
 		{
 			case 'P':
 				str[0] = ch;
-				ch = fgetc(fin);
+				ch = getc(stdin);
 				if(ch == 'U')
 				{
 					str[1] = ch;
-					fgets(&str[2], 18, fin);
+					fgets(&str[2], 18, stdin);
 					sscanf(str, "%s %d", tp, &plateIndex);
 					Refill(&top, plateIndex);
 				}
 				else if(ch == 'O')
 				{
 					str[1] = ch;
-					fgets(&str[2], 18, fin);
+					fgets(&str[2], 18, stdin);
 					plateTakeIndex = TakePlate(&top);
 				}
 				break;
 			case 'E':
 				str[0] = ch;
-				fgets(&str[1], 19, fin);
+				fgets(&str[1], 19, stdin);
 				sscanf(str, "%s %c", tp, &lineX);
 				if(lineX == 'A'){
 					JoinLine(&frontA, &rearA, plateTakeIndex);
@@ -67,15 +63,15 @@ int main(int argc, char **argv){
 				break;
 			case 'D':
 				str[0] = ch;
-				fgets(&str[1], 19, fin);
+				fgets(&str[1], 19, stdin);
 				sscanf(str, "%s %c", tp, &lineX);
 				if(lineX == 'A'){
 					plateOutIndex = LeaveLine(&frontA);
-					fprintf(fout, "%d\n\n", plateOutIndex);
+					fprintf(stdout, "%d\n\n", plateOutIndex);
 				}
 				else if(lineX == 'B'){
 					plateOutIndex = LeaveLine(&frontB);
-					fprintf(fout, "%d\n\n", plateOutIndex);
+					fprintf(stdout, "%d\n\n", plateOutIndex);
 				}
 				break;
 			default:
@@ -83,8 +79,6 @@ int main(int argc, char **argv){
 		}		
 
 	}	
-	fclose(fin);
-	fclose(fout);
 	return 0;
 }
 
