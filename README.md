@@ -64,7 +64,7 @@
 #### 流程圖:
 ![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/Untitled%20Diagram.png)
 
-# HW_2
+# HW3_2
 ## Program design:
   * strust:
   for linked lists
@@ -92,8 +92,10 @@
         抽出或移動牌的順序。
 ## Result screenshot:
 * Execution:
+
 ![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-exe.PNG)
 * Output
+
 ![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-1.PNG)
 ![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-2.PNG)
 ## Program functions:
