@@ -1,5 +1,10 @@
 ##### F74086072 資訊系 呂文翔
 # HW3_1
+## Program architecture:
+#### 流程圖:
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/Untitled%20Diagram.png)
+## Result screenshot:
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_1.PNG)
 ## Program design:
    * struct:
    for linked lists
@@ -34,8 +39,6 @@
          輸入指令(ENQUEUE X)，將取出的盤子index放到line X的最末端。
       4.	LeaveLine:
          輸入指令(DEQUEUE X) 將line X的最前端的盤子index移出line X，並將所有其他盤子向前移一格。
-## Result screenshot:
-![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_1.PNG)
 ## Program functions:
    1. void Refill(stack_pointer *top, int index)
       Refill a plate index N into plate stack. 
@@ -60,11 +63,20 @@
          - *front – This is the pointer of the pointer of the front of the line X.
       * Return value
          - Return th index of the leaving customer’s plate.
-## Program architecture:
-#### 流程圖:
-![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/Untitled%20Diagram.png)
 
 # HW3_2
+## Program architecture:
+####  流程圖:
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/diagram3-2.png)
+
+## Result screenshot:
+* Execution:
+
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-exe.PNG)
+* Output
+
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-1.PNG)
+![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-2.PNG)
 ## Program design:
   * strust:
   for linked lists
@@ -90,14 +102,6 @@
         判斷牌堆頂的牌是否為目前需要的牌。
     4. MoveCard:
         抽出或移動牌的順序。
-## Result screenshot:
-* Execution:
-
-![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-exe.PNG)
-* Output
-
-![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-1.PNG)
-![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/hw3_2-2.PNG)
 ## Program functions:
   1. void InputCard(card_pointer *top)
     將<input.txt>中的字元依序建成link-list牌堆。
@@ -120,6 +124,3 @@
     否則將牌頂的牌移置牌堆底。
     * Parameters
       - *top - This is pointer of the pointer of the top of the card lists.
-## Program architecture:
-####  流程圖:
-![image](https://github.com/ShawnLu31/data_structure_hw3/blob/main/diagram3-2.png)
